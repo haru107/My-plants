@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Plant Collection</title>
+    
+    <link rel="icon" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="manifest" href="manifest.json">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -18,38 +23,56 @@
             font-family: 'Inter', sans-serif; 
             background: var(--bg-color); 
             color: var(--text-color); 
-            padding: 10px; /* 全体の余白を削減 */
+            padding: 10px;
             margin: 0;
             font-size: 14px;
         }
         
         /* ヘッダー */
         .header-container {
-            max-width: 1000px; /* 幅を広げて横に広く使う */
+            max-width: 1000px;
             margin: 0 auto 20px auto;
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        h1 { margin: 0 0 10px 0; font-size: 1.5em; }
+        
+        .site-title-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .site-logo {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 8px; /* 角丸にする */
+        }
+
+        h1 { margin: 0; font-size: 1.8em; color: #2c3e50; }
         
         .search-box {
             width: 100%; max-width: 400px; padding: 8px 10px;
             border: 1px solid #ccc; border-radius: 4px;
             font-size: 14px; margin-bottom: 10px;
         }
-        .filter-container { display: flex; gap: 5px; flex-wrap: wrap; }
+        .filter-container { display: flex; gap: 5px; flex-wrap: wrap; justify-content: center; }
         .filter-btn {
             border: none; background: #e0e0e0; color: #555;
             padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 600;
         }
         .filter-btn.active { background: #333; color: white; }
 
-        /* === リスト表示レイアウト (余白圧縮版) === */
+        /* === リスト表示レイアウト === */
         .gallery-grid {
             display: flex;
             flex-direction: column;
-            gap: 15px;              /* ★カード間の隙間を極力狭く (15px) */
-            max-width: 1000px;      /* ★カードの横幅を広げる */
+            gap: 15px;
+            max-width: 1000px;
             margin: 0 auto;
         }
         
@@ -63,14 +86,13 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
         
-        /* === 情報エリア (超コンパクト化) === */
         .card-info { 
-            padding: 6px 12px; /* ★上下の余白を限界まで削る */
+            padding: 6px 12px;
             border-bottom: 1px solid #eee;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #fafafa; /* ヘッダーっぽく背景色をつける */
+            background: #fafafa;
         }
         
         .id-badge { 
@@ -79,8 +101,7 @@
             display: inline-block; margin-right: 8px; vertical-align: middle;
         }
         .plant-name { 
-            font-size: 1.2em; /* 文字は読みやすい大きさ */
-            font-weight: 700; margin: 0; display: inline-block; vertical-align: middle;
+            font-size: 1.2em; font-weight: 700; margin: 0; display: inline-block; vertical-align: middle;
         }
         .plant-genus { 
             font-size: 0.75em; color: var(--accent-color); 
@@ -89,22 +110,20 @@
         }
         
         .info-right { text-align: right; font-size: 0.85em; display: flex; gap: 15px; align-items: center; }
-        .card-details span { margin-left: 10px; color: #666; }
         
         .memo-row { 
             font-size: 0.85em; color: #665c38; background: #fffbe6; 
             padding: 4px 12px; border-bottom: 1px solid #f9f9f9;
         }
 
-        /* === 写真スクロールエリア (写真は大きいまま) === */
         .photo-strip {
             display: flex;
             overflow-x: auto;
             scroll-behavior: smooth;
             background: #fff;
-            padding: 10px;    /* 写真周りの余白は少しだけ確保 */
+            padding: 10px;
             gap: 10px;
-            height: 220px;    /* ★高さを確保 (200pxの写真が入るように) */
+            height: 220px;
             align-items: center;
         }
         .photo-strip::-webkit-scrollbar { height: 8px; }
@@ -115,22 +134,19 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 200px; /* ★写真は元の200px幅 */
+            width: 200px;
         }
         .photo-item img {
             width: 100%;
-            height: 200px; /* ★写真は元の200px高さ */
+            height: 200px;
             object-fit: cover;
             border-radius: 4px;
             border: 1px solid #eee;
         }
         .photo-item img:hover { opacity: 0.9; transform: scale(1.02); transition: 0.2s; }
         
-        .photo-date {
-            font-size: 0.7em; color: #888; margin-top: 2px;
-        }
+        .photo-date { font-size: 0.7em; color: #888; margin-top: 2px; }
 
-        /* スマホ対応 */
         @media (max-width: 600px) {
             .card-info { flex-direction: column; align-items: flex-start; gap: 5px; }
             .info-right { width: 100%; justify-content: space-between; margin-top: 5px; }
@@ -142,7 +158,11 @@
 <body>
 
 <div class="header-container">
-    <h1>🌿 My Plant Collection</h1>
+    <div class="site-title-area">
+        <img src="logo.png" alt="Logo" class="site-logo">
+        <h1>My Plant Collection</h1>
+    </div>
+    
     <input type="text" id="searchInput" class="search-box" placeholder="名前やIDで検索..." onkeyup="filterPlants()">
     <div class="filter-container">
         <button class="filter-btn active" onclick="filterByGenus('all')">All</button>
