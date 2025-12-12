@@ -1026,3 +1026,14 @@ Omit --global to set the identity only in this repository.
 
 fatal: unable to auto-detect email address (got 'haru107@raspberry-norimaro.(none)')
 192.168.10.145 - - [13/Dec/2025 02:12:30] "POST /admin HTTP/1.1" 200 -
+✅ manifest.json を生成しました (アイコン: logo.png)
+------------------------------
+🎨 HTML図鑑の生成を開始します（ロゴ＆マニフェスト対応版）...
+------------------------------
+✅ 生成完了！ロゴ設定とPWA対応を追加しました。
+192.168.10.145 - - [13/Dec/2025 02:19:13] "POST /admin HTTP/1.1" 200 -
+✅ manifest.json を生成しました (アイコン: logo.png)
+------------------------------
+🎨 HTML図鑑の生成を開始します（ロゴ＆マニフェスト対応版）...
+------------------------------
+✅ 生成完了！ロゴ設定とPWA対応を追加しました。
