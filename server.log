@@ -1085,3 +1085,14 @@ upstream, see 'push.autoSetupRemote' in 'git help config'.
 🎨 HTML図鑑の生成を開始します（ロゴ＆マニフェスト対応版）...
 ------------------------------
 ✅ 生成完了！ロゴ設定とPWA対応を追加しました。
+[main 02479ef] Update
+ 2 files changed, 17 insertions(+), 1 deletion(-)
+fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+192.168.10.145 - - [13/Dec/2025 02:21:47] "POST /admin HTTP/1.1" 200 -
