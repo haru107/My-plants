@@ -1037,3 +1037,19 @@ fatal: unable to auto-detect email address (got 'haru107@raspberry-norimaro.(non
 🎨 HTML図鑑の生成を開始します（ロゴ＆マニフェスト対応版）...
 ------------------------------
 ✅ 生成完了！ロゴ設定とPWA対応を追加しました。
+[main ebb161d] Update
+ 2 files changed, 12 insertions(+), 1 deletion(-)
+fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+192.168.10.145 - - [13/Dec/2025 02:19:19] "POST /admin HTTP/1.1" 200 -
+✅ manifest.json を生成しました (アイコン: logo.png)
+------------------------------
+🎨 HTML図鑑の生成を開始します（ロゴ＆マニフェスト対応版）...
+------------------------------
+✅ 生成完了！ロゴ設定とPWA対応を追加しました。
